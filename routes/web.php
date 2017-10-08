@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'CheckSplitController@index');
+Route::get('/split-check', 'CheckSplitController@splitCheck');
