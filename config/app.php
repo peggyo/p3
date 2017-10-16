@@ -13,7 +13,9 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => 'CheckSplitter',
+    /* was:  'name' => env('APP_NAME', 'Default Name'), */
+    /* With the change, we can remove APP_NAME from .env file */
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +54,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://p3.dwa15peg.me'),
 
     /*
     |--------------------------------------------------------------------------
@@ -123,7 +125,8 @@ return [
 
     'log' => env('APP_LOG', 'single'),
 
-    'log_level' => env('APP_LOG_LEVEL', 'debug'),
+    /*'log_level' => env('APP_LOG_LEVEL', 'debug'),*/
+    'log_level' => 'debug',
 
     /*
     |--------------------------------------------------------------------------
