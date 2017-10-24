@@ -10,7 +10,9 @@
 @section('content')
     <h1>Check Splitter in index.blade.php</h1>
 
-    <form>
+    <!--<form method='GET' action='/split-check'>-->
+    <form method='POST' action='/split-check'>
+        {{ csrf_field() }}
         <div class='form-group'>
             <label for='billAmount'>Bill Amount: $</label>
             <input name='billAmount' id='billAmount' type='text'>
@@ -34,7 +36,7 @@
             <input name='divideBy' id='divideBy' type='number' min='1' max='100' step='1' required/>
          </div>
 
-         <input type='submit' value='Calculate' />
+         <input type='submit'/>
     </form>
 
 @endsection

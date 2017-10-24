@@ -21,5 +21,21 @@ Route::get('/env', function () {
     dump(config('app.url'));
 });
 
+/**
+* Checking out some of the debugbar features
+*/
+Route::get('/debugbar', function () {
+
+    $data = ['foo' => 'bar'];
+    Debugbar::info($data);
+    Debugbar::info('Current environment: '.App::environment());
+    Debugbar::error('Error!');
+    Debugbar::warning('Watch out…');
+    Debugbar::addMessage('Another message', 'mylabel');
+
+    return 'Just demoing some of the features of Debugbar';
+});
+
+
 Route::get('/', 'CheckSplitController@index');
-Route::get('/split-check', 'CheckSplitController@splitCheck');
+Route::post('/split-check', 'CheckSplitController@splitCheck');
