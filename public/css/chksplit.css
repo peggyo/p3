@@ -1,0 +1,30 @@
+
+h1, h2, h3 {
+  text-align: center;
+  color: darkblue;
+}
+
+section {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    color: darkblue;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.error-group {
+    color: red;
+}
+
+
+.copyright {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    color: darkblue;
+}

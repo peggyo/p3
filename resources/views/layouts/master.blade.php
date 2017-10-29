@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<!-- Leaving commented out code from the template of the foobooks example as reminders to myself about how the template can be used. -->
 <head>
 	<title>
         @yield('title', 'CheckSplitter')
@@ -24,7 +25,7 @@
 		@yield('content')
 	</section>
 
-	<footer>
+	<footer class='copyright'>
 		&copy; {{ date('Y') }}
 	</footer>
 

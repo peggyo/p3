@@ -10,17 +10,61 @@ class CheckSplitController extends Controller
     public function index()
     {
         #return 'Show the Check Splitter form';
-        return view('checksplit.index');
+        //dump(session('message'));
+        return view('checksplit.index')->with([
+            'message' => session('message')
+        ]);
 
     }
 
     public function splitCheck(Request $request)
     {
-        #return 'Calculate the amount for each person to pay now.';
+
+        #dump($request->all());
+        #return view('checksplit.index');
+
+        #validation: validate method is part of Controller class
+        $this->validate($request, [
+            'billAmount' => 'required|numeric|min:1|max:2000',
+            'divideBy' => 'required|integer|min:1'
+        ]);
+
+        # If there are validation errors we would already have returned so no
+        # need to check to see if $errors is populated
+
+
+        $percentage = ($request->tip / 100);
+        $totalBill = $request->billAmount + ($request->billAmount * $percentage);
+        $singleShare = $totalBill / $request->divideBy;
+
+        $round = $request->has('round');
+        if ($round) {
+            $singleShare = round($singleShare);
+        }
+
+        #dd($request->tip);
+
+
+        # Note: I am currently only using the message that is returned. I am returning the other values
+        # because I am thinking I will need them to maintain the old values even if validation is passed.
+        # I am struggling with this part of the app, so I may be wrong here....  Still working.
+        return redirect('/')->with([
+            'message' => 'Each pay $'.$singleShare.' out of a total $'.$totalBill.'.',
+            'billAmount' => $request->billAmount,
+            'tip' => $request->tip,
+            'divideBy' => $request->divideBy
+        ]);
+
+    }
+
+        #return 'Calculate the amount for each person to pay now.'
         #return view('checksplit.splitcheck');
         # Most likely redirect to form to show the answer
 
-        /***************************************************/
+        /***************************************************
+        public function splitCheck(Request $request)
+        {
+        */
         /* A BUNCH OF TESTING
         # See all the properties and methods available in the $request object
             dump($request);
@@ -56,7 +100,4 @@ class CheckSplitController extends Controller
 
         /* END: A BUNCH OF TESTING */
         /***************************************************/
-        dump($request->all());
-        return view('checksplit.index');
     }
-}
