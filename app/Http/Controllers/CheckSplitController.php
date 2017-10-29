@@ -21,12 +21,17 @@ class CheckSplitController extends Controller
     {
 
         #dump($request->all());
+        #dd($request->all());
         #return view('checksplit.index');
 
         #validation: validate method is part of Controller class
+        # the divideBy and tip values are set via select list and a number spinner
+        # so the validation is a failsafe on the server side - it would most likely
+        # already by handled by the front end.
         $this->validate($request, [
             'billAmount' => 'required|numeric|min:1|max:2000',
-            'divideBy' => 'required|integer|min:1'
+            'divideBy' => 'required|integer|min:1|max:20',
+            'tip' => 'required|integer|min:1|max:20'
         ]);
 
         # If there are validation errors we would already have returned so no
