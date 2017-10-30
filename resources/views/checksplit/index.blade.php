@@ -44,6 +44,7 @@
     <h3>
         {{ $message }}
     </h3>
+
     @if(count($errors) > 0)
         <ul class='error-group'>
             @foreach ($errors->all() as $error)
