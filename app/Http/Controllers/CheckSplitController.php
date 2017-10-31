@@ -26,11 +26,21 @@ class CheckSplitController extends Controller
         # the divideBy and tip values are set via select list and a number spinner
         # so the validation is a failsafe on the server side - it would most likely
         # already by handled by the front end.
+
+        # This is an example of custom error messages.
+        # If electing to use custom messages, pass the array ($errMsgs here)
+        # as the third argument to $this->validate methoc.
+        #$errMsgs = [
+        #    'required' => 'You must include the :attribute value.',
+        #    'integer' => 'The :attribute value must be a whole number, no fractions allowed.'
+        #];
+
         $this->validate($request, [
             'billAmount' => 'required|numeric|min:1|max:2000',
             'divideBy' => 'required|integer|min:1|max:20',
             'tip' => 'required|integer|min:1|max:20'
         ]);
+
         # If there are validation errors we would already have returned so no
         # need to check to see if $errors is populated
         $percentage = ($request->tip / 100);

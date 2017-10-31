@@ -32,7 +32,7 @@
          </div>
          <div class='form-group'>
             <label for='round'>Round:</label>
-            <input name='round' id='round' type='checkbox' {{ old('round') ? 'checked' : '' }}>
+            <input name='round' id='round' type='checkbox' {{ old('round') ? 'checked' : '' }} or 'checked'>
          </div>
          <div class='form-group'>
             <label for='divideBy'>Divide By:</label>

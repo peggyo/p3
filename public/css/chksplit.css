@@ -16,6 +16,10 @@ ul {
     list-style-type: none;
 }
 
+.hint {
+    font-style: italic;
+}
+
 .error-group {
     color: red;
 }
@@ -26,5 +30,6 @@ ul {
     margin: auto;
     text-align: center;
     font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-size: xx-small;
     color: darkblue;
 }
